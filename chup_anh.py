@@ -1,4 +1,13 @@
+import subprocess
+import sys
 import cv2
+def cai_thu_vien(ten_thu_vien):
+    try:
+        __import__(ten_thu_vien)
+        print(f"✅ Đã có thư viện '{ten_thu_vien}'")
+    except ImportError:
+        print(f"📦 Đang cài thư viện '{ten_thu_vien}'...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", ten_thu_vien])
 # Mở webcam (0 là camera mặc định)
 cam = cv2.VideoCapture(0)
 
