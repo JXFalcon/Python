@@ -7,7 +7,7 @@ def cai_thu_vien(ten_thu_vien):
     except ImportError:
         print(f"📦 Đang cài thư viện '{ten_thu_vien}'...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", ten_thu_vien])
-cai_thu_vien("cv2")
+cai_thu_vien("opencv-python")
 import cv2
 # Mở webcam (0 là camera mặc định)
 cam = cv2.VideoCapture(0)
@@ -22,4 +22,5 @@ else:
     print("❌ Không thể truy cập camera.")
 
 cam.release()
+
 
