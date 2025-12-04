@@ -12,18 +12,18 @@ def run_cmd(cmd):
 
 # ⚠️ Thay đổi các biến này cho phù hợp
 repo_url = "https://github.com/JXFalcon/File_anh.git"   # link repo của bạn
-branch = "main"                                     # nhánh muốn push
-commit_message = "Upload file photo.jpg"          # nội dung commit
-file_to_push = "photo.jpg"                        # file muốn đẩy lên
+branch = "main"                                        # nhánh muốn push
+commit_message = "Upload all jpg images"               # nội dung commit
 
 # 1. Khởi tạo git nếu chưa có
 run_cmd("git init")
 
 # 2. Thêm remote (chỉ cần làm 1 lần, sau đó có thể bỏ qua)
+run_cmd("git remote remove origin")  # xoá remote cũ nếu có
 run_cmd(f"git remote add origin {repo_url}")
 
-# 3. Thêm file vào staging
-run_cmd(f"git add {file_to_push}")
+# 3. Thêm tất cả ảnh JPG vào staging
+run_cmd("git add *.jpg")
 
 # 4. Commit
 run_cmd(f'git commit -m "{commit_message}"')
