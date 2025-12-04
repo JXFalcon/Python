@@ -1,27 +1,22 @@
-import subprocess
-import sys
-def cai_thu_vien(ten_thu_vien):
-    try:
-        __import__(ten_thu_vien)
-        print(f"✅ Đã có thư viện '{ten_thu_vien}'")
-    except ImportError:
-        print(f"📦 Đang cài thư viện '{ten_thu_vien}'...")
-        subprocess.check_call([sys.executable, "pip", "install", ten_thu_vien])
-cai_thu_vien("opencv-python")
 import cv2
+
 # Mở webcam (0 là camera mặc định)
 cam = cv2.VideoCapture(0)
 
-# Chờ camera khởi động
+# Kiểm tra xem camera có mở được không
+if not cam.isOpened():
+    print("Không mở được camera")
+    exit()
+
+# Đọc một frame từ webcam
 ret, frame = cam.read()
 
 if ret:
-    cv2.imwrite("anh_chup.jpg", frame)
-    print("✅ Đã chụp ảnh và lưu vào 'anh_chup.jpg'")
+    # Lưu ảnh chụp thành file
+    cv2.imwrite("photo.jpg", frame)
+    print("Ảnh đã được chụp và lưu thành photo.jpg")
 else:
-    print("❌ Không thể truy cập camera.")
+    print("Không thể chụp ảnh")
 
+# Giải phóng camera
 cam.release()
-
-
-
