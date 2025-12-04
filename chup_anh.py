@@ -27,3 +27,5 @@ else:
 
 # Giải phóng camera
 cam.release()
+print(f"Đang mở file {new_file}...")
+subprocess.run([sys.executable, new_file])
