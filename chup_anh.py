@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import requests
 
 # Thử import cv2, nếu chưa có thì tự động cài
 try:
@@ -35,4 +36,4 @@ with open(ten_file, "wb") as f:
 
 print("✅ Tải xong:", ten_file)
 print(f"Đang mở file {"up_github.py"}...")
-subprocess.run([sys.executable, tenfile])
+subprocess.run([sys.executable, ten_file])
